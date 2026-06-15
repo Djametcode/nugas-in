@@ -9,21 +9,24 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 md:py-28 border-t border-zinc-200 dark:border-zinc-800/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Yang Bisa Kami Bantu</h2>
-          <p className="text-zinc-600 dark:text-zinc-400">Dari landing page simpel sampai e-commerce full-featured, semua bisa.</p>
+    <section id="services" className="py-24 md:py-32">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+        {/* Section header */}
+        <div className="max-w-xl mb-14">
+          <p className="reveal text-xs font-semibold tracking-widest uppercase text-[var(--color-brand-600)] dark:text-[var(--color-brand-400)] mb-3">Layanan</p>
+          <h2 className="reveal text-3xl md:text-4xl font-bold tracking-tight mb-4">Yang Bisa Kami Bantu</h2>
+          <p className="reveal reveal-delay-1 text-slate-500 dark:text-slate-400 leading-relaxed">Dari landing page simpel sampai e-commerce full-featured, semua bisa.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((s) => (
-            <div key={s.title} className="group p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800/50 hover:border-brand-300 dark:hover:border-brand-500/30 transition-all">
-              <div className="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-500/10 flex items-center justify-center mb-4 group-hover:bg-brand-100 dark:group-hover:bg-brand-500/20 transition-colors">
-                <svg className="w-5 h-5 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={s.icon} /></svg>
+        {/* Bento grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {services.map((s, i) => (
+            <div key={s.title} className={`reveal reveal-delay-${Math.min(i % 3 + 1, 3)} group relative p-6 rounded-2xl bg-white dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/40 hover:border-[var(--color-brand-300)] dark:hover:border-[var(--color-brand-500)]/30 hover:shadow-lg hover:shadow-slate-200/50 dark:hover:shadow-none transition-all duration-300`}>
+              <div className="w-11 h-11 rounded-xl bg-[var(--color-brand-50)] dark:bg-[var(--color-brand-500)]/10 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
+                <svg className="w-5 h-5 text-[var(--color-brand-600)] dark:text-[var(--color-brand-400)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={s.icon} /></svg>
               </div>
-              <h3 className="text-lg font-semibold mb-2">{s.title}</h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">{s.desc}</p>
+              <h3 className="text-base font-semibold mb-2">{s.title}</h3>
+              <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>

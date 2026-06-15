@@ -7,9 +7,11 @@ import Pricing from './components/Pricing'
 import FAQ from './components/FAQ'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
+import { useScrollReveal } from './hooks/useScrollReveal'
 
 function App() {
   const [dark, setDark] = useState(() => {
+    if (typeof window === 'undefined') return false
     const saved = localStorage.getItem('theme')
     if (saved) return saved === 'dark'
     return window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -20,8 +22,10 @@ function App() {
     localStorage.setItem('theme', dark ? 'dark' : 'light')
   }, [dark])
 
+  useScrollReveal()
+
   return (
-    <div className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 transition-colors duration-200">
+    <div className="min-h-screen bg-[var(--color-surface)] text-slate-900 dark:bg-[var(--color-surface-dark)] dark:text-slate-100 transition-colors duration-300">
       <Navbar dark={dark} setDark={setDark} />
       <Hero />
       <Services />
