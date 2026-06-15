@@ -5,95 +5,93 @@ export default function Navbar({ dark, setDark }) {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   const links = [
     { href: '#services', label: 'Layanan' },
-    { href: '#how-it-works', label: 'Cara Kerja' },
+    { href: '#how-it-works', label: 'Proses' },
     { href: '#pricing', label: 'Harga' },
-    { href: '#faq', label: 'FAQ' },
+    { href: '#faq', label: 'Tanya' },
   ]
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled
-        ? 'bg-white/90 dark:bg-slate-900/90 backdrop-xl shadow-sm border-b border-slate-200/60 dark:border-slate-700/40'
-        : 'bg-transparent'
-    }`}>
-      <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-18">
+    <>
+      {/* Floating navbar */}
+      <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
+        scrolled
+          ? 'w-[calc(100%-2rem)] max-w-3xl'
+          : 'w-[calc(100%-2rem)] max-w-3xl'
+      }`}>
+        <div className={`flex items-center justify-between px-5 py-3 rounded-2xl transition-all duration-500 ${
+          scrolled
+            ? 'bg-white/80 dark:bg-[#1E1A17]/80 backdrop-blur-xl shadow-lg shadow-black/[0.04] dark:shadow-black/20 border border-warm-200/60 dark:border-warm-300/10'
+            : 'bg-transparent'
+        }`}>
           {/* Logo */}
-          <a href="#" className="flex items-center gap-1.5 group">
-            <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Nugas</span>
-            <span className="text-xl font-bold tracking-tight text-[var(--color-brand-600)] dark:text-[var(--color-brand-400)]">.in</span>
+          <a href="#" className="font-display text-2xl tracking-tight">
+            <span className="text-espresso dark:text-warm-100">Nugas</span>
+            <span className="text-terracotta">.</span>
           </a>
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-1">
             {links.map((l) => (
-              <a key={l.href} href={l.href} className="px-3 py-2 text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100/60 dark:hover:bg-slate-800/60 transition-all">
+              <a key={l.href} href={l.href} className="px-3.5 py-2 text-[13px] text-espresso-soft/70 dark:text-warm-300/70 hover:text-espresso dark:hover:text-warm-100 rounded-xl transition-colors duration-200">
                 {l.label}
               </a>
             ))}
           </div>
 
-          {/* Desktop actions */}
-          <div className="hidden md:flex items-center gap-2">
+          {/* Actions */}
+          <div className="flex items-center gap-2">
             <button
               onClick={() => setDark(!dark)}
-              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all active:scale-95"
+              className="p-2.5 rounded-xl hover:bg-warm-100 dark:hover:bg-warm-300/10 transition-colors duration-200"
               aria-label="Toggle dark mode"
             >
               {dark ? (
-                <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                <svg className="w-[18px] h-[18px] text-terracotta" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
               ) : (
-                <svg className="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                <svg className="w-[18px] h-[18px] text-espresso-soft/60" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
               )}
             </button>
-            <a
-              href="https://wa.me/6281234567890?text=Halo%20Nugas.in%2C%20saya%20mau%20bikin%20website"
-              className="inline-flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-medium px-5 py-2.5 rounded-xl hover:opacity-90 transition-all active:scale-[0.97]"
-            >
-              Hubungi Kami
+            <a href="https://wa.me/6281234567890?text=Halo%20Nugas.in%2C%20saya%20mau%20bikin%20website" className="hidden md:inline-flex items-center gap-2 bg-espresso dark:bg-warm-100 text-cream dark:text-espresso text-[13px] font-medium px-5 py-2.5 rounded-full hover:opacity-90 transition-all active:scale-[0.97]">
+              Chat
             </a>
-          </div>
-
-          {/* Mobile */}
-          <div className="flex items-center gap-1.5 md:hidden">
-            <button onClick={() => setDark(!dark)} className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 active:scale-95 transition-all" aria-label="Toggle dark mode">
-              {dark ? (
-                <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
-              ) : (
-                <svg className="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
-              )}
-            </button>
-            <button onClick={() => setMobileOpen(!mobileOpen)} className="p-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" aria-label="Menu">
-              {mobileOpen ? (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-              ) : (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
-              )}
+            <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden p-2.5 rounded-xl hover:bg-warm-100 dark:hover:bg-warm-300/10 transition-colors" aria-label="Menu">
+              <div className="w-5 h-4 flex flex-col justify-between">
+                <span className={`block h-[1.5px] bg-espresso dark:bg-warm-100 rounded-full transition-all duration-300 origin-left ${mobileOpen ? 'rotate-45 w-[22px]' : 'w-5'}`} />
+                <span className={`block h-[1.5px] bg-espresso dark:bg-warm-100 rounded-full transition-all duration-300 ${mobileOpen ? 'opacity-0 translate-x-2' : 'w-3.5'}`} />
+                <span className={`block h-[1.5px] bg-espresso dark:bg-warm-100 rounded-full transition-all duration-300 origin-left ${mobileOpen ? '-rotate-45 w-[22px]' : 'w-5'}`} />
+              </div>
             </button>
           </div>
         </div>
+      </nav>
 
-        {/* Mobile menu */}
-        <div className={`md:hidden overflow-hidden transition-all duration-300 ${mobileOpen ? 'max-h-80 pb-5' : 'max-h-0'}`}>
-          <div className="flex flex-col gap-1 pt-2">
-            {links.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="px-4 py-3 text-sm text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all">
-                {l.label}
-              </a>
-            ))}
-            <a href="https://wa.me/6281234567890" className="mt-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm text-center font-medium px-4 py-3 rounded-xl">
-              Hubungi Kami
+      {/* Mobile overlay */}
+      <div className={`fixed inset-0 z-40 transition-all duration-500 ${mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <div className="absolute inset-0 bg-cream/95 dark:bg-cream-dark/95 backdrop-blur-2xl" onClick={() => setMobileOpen(false)} />
+        <div className="relative flex flex-col items-center justify-center h-full gap-2">
+          {links.map((l, i) => (
+            <a key={l.href} href={l.href} onClick={() => setMobileOpen(false)}
+              className={`text-3xl font-display text-espresso dark:text-warm-100 py-3 transition-all duration-500 ${mobileOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+              style={{ transitionDelay: mobileOpen ? `${100 + i * 80}ms` : '0ms' }}
+            >
+              {l.label}
             </a>
-          </div>
+          ))}
+          <a href="https://wa.me/6281234567890"
+            className={`mt-6 bg-espresso dark:bg-warm-100 text-cream dark:text-espresso font-medium px-8 py-3.5 rounded-full transition-all duration-500 ${mobileOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+            style={{ transitionDelay: mobileOpen ? '500ms' : '0ms' }}
+          >
+            Chat WhatsApp
+          </a>
         </div>
       </div>
-    </nav>
+    </>
   )
 }

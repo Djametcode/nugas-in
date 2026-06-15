@@ -1,75 +1,103 @@
-const CheckIcon = () => (
-  <svg className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
-)
-
 const plans = [
   {
-    name: 'BASIC',
-    price: 'Rp 500K',
-    desc: 'satu kali bayar',
-    features: ['Landing page 1 halaman', 'Responsive design', '3x revisi', 'Source code'],
-    cta: 'Pilih Basic',
-    popular: false,
+    name: 'Basic',
+    price: '500K',
+    desc: 'Landing page satu halaman. Responsive, cepat, langsung online.',
+    features: ['1 halaman', 'Responsive', '3x revisi', 'Source code'],
+    cta: 'Pilih ini',
+    highlight: false,
   },
   {
-    name: 'PRO',
-    price: 'Rp 1.5Jt',
-    desc: 'satu kali bayar',
-    features: ['Multi halaman (sampai 5)', 'CMS sederhana', 'Revisi unlimited', 'SEO setup', 'Domain & hosting 1 tahun'],
-    cta: 'Pilih Pro',
-    popular: true,
+    name: 'Pro',
+    price: '1.5jt',
+    desc: 'Multi-halaman dengan CMS. Cocok buat bisnis yang butuh update konten sendiri.',
+    features: ['Sampai 5 halaman', 'CMS sederhana', 'Revisi unlimited', 'SEO dasar', 'Domain + hosting 1 tahun'],
+    cta: 'Pilih ini',
+    highlight: true,
   },
   {
-    name: 'CUSTOM',
-    price: 'Chat Harga',
-    desc: 'sesuai kebutuhan',
-    features: ['E-commerce / toko online', 'Web app / dashboard', 'API integration', 'Tugas akhir / skripsi', 'Bonus konsultasi'],
-    cta: 'Chat Sekarang',
-    popular: false,
+    name: 'Custom',
+    price: 'Chat',
+    desc: 'E-commerce, web app, dashboard, tugas akhir. Apapun bisa.',
+    features: ['Toko online', 'Web app / dashboard', 'API integration', 'Tugas akhir / skripsi'],
+    cta: 'Ngobrol dulu',
+    highlight: false,
   },
 ]
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 md:py-32">
-      <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div className="max-w-xl mb-14">
-          <p className="reveal text-xs font-semibold tracking-widest uppercase text-[var(--color-brand-600)] dark:text-[var(--color-brand-400)] mb-3">Harga</p>
-          <h2 className="reveal text-3xl md:text-4xl font-bold tracking-tight mb-4">Harga Transparan</h2>
-          <p className="reveal reveal-delay-1 text-slate-500 dark:text-slate-400 leading-relaxed">Gak ada biaya tersembunyi. Pilih yang sesuai kebutuhanmu.</p>
+    <section id="pricing" className="py-24 md:py-36">
+      <div className="max-w-6xl mx-auto px-6 md:px-8">
+        {/* Header */}
+        <div className="max-w-lg mb-16">
+          <div className="reveal flex items-center gap-3 mb-5">
+            <span className="w-8 h-[1px] bg-terracotta" />
+            <span className="text-[11px] font-medium tracking-[0.2em] uppercase text-terracotta">Harga</span>
+          </div>
+          <h2 className="reveal reveal-delay-1 font-display text-4xl md:text-5xl tracking-tight leading-[1.05] mb-5">
+            Transparan,<br /><span className="italic">Tanpa Drama</span>
+          </h2>
         </div>
 
+        {/* Pricing cards - not typical 3-tower */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {plans.map((p) => (
-            <div key={p.name} className={`reveal relative p-6 rounded-2xl transition-all duration-300 ${
-              p.popular
-                ? 'bg-[var(--color-brand-50)] dark:bg-[var(--color-brand-500)]/8 border-2 border-[var(--color-brand-400)] dark:border-[var(--color-brand-500)]/40 shadow-lg shadow-[var(--color-brand-200)]/30 dark:shadow-none'
-                : 'bg-white dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/40 hover:border-slate-300 dark:hover:border-slate-600'
-            }`}>
-              {p.popular && (
-                <div className="absolute -top-3 left-6 bg-[var(--color-brand-600)] text-white text-[11px] font-bold tracking-wide px-3 py-1 rounded-full uppercase">Populer</div>
+          {plans.map((p, i) => (
+            <div key={p.name} className={`reveal group relative rounded-2xl p-7 md:p-8 transition-all duration-500 ${
+              p.highlight
+                ? 'bg-espresso dark:bg-warm-100 text-cream dark:text-espresso ring-1 ring-terracotta/20'
+                : 'bg-white dark:bg-warm-300/[0.04] border border-warm-200/40 dark:border-warm-300/[0.06] hover:border-terracotta/20 dark:hover:border-terracotta/10'
+            }`}
+              style={{ transitionDelay: `${i * 100}ms` }}
+            >
+              {p.highlight && (
+                <div className="absolute -top-3 right-8 bg-terracotta text-white text-[10px] font-bold tracking-wider px-3 py-1 rounded-full uppercase">
+                  Populer
+                </div>
               )}
 
-              <div className={`text-xs font-semibold tracking-wider uppercase mb-3 ${p.popular ? 'text-[var(--color-brand-600)] dark:text-[var(--color-brand-400)]' : 'text-slate-400'}`}>{p.name}</div>
-              <div className="text-3xl font-bold mb-1">{p.price}</div>
-              <div className="text-sm text-slate-400 mb-6">{p.desc}</div>
+              <div className={`text-[11px] font-medium tracking-[0.15em] uppercase mb-4 ${p.highlight ? 'text-cream/60 dark:text-espresso/50' : 'text-espresso-soft/40 dark:text-warm-300/40'}`}>
+                {p.name}
+              </div>
 
-              <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-400 mb-8">
+              <div className="font-display text-4xl md:text-5xl mb-2">
+                {p.price === 'Chat' ? (
+                  <span className="italic">{p.price}</span>
+                ) : (
+                  <><span className="text-lg align-top mr-0.5">Rp</span>{p.price}</>
+                )}
+              </div>
+
+              <p className={`text-sm leading-relaxed mb-8 ${p.highlight ? 'text-cream/70 dark:text-espresso/60' : 'text-espresso-soft/50 dark:text-warm-300/50'}`}>
+                {p.desc}
+              </p>
+
+              <ul className="space-y-3 mb-8">
                 {p.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5"><CheckIcon />{f}</li>
+                  <li key={f} className={`flex items-center gap-2.5 text-sm ${p.highlight ? 'text-cream/80 dark:text-espresso/70' : 'text-espresso-soft/60 dark:text-warm-300/60'}`}>
+                    <span className={`w-1 h-1 rounded-full ${p.highlight ? 'bg-terracotta' : 'bg-sage'}`} />
+                    {f}
+                  </li>
                 ))}
               </ul>
 
-              <a href={`https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20paket%20${p.name}`} className={`block w-full text-center text-sm font-medium px-4 py-3 rounded-xl transition-all active:scale-[0.97] ${
-                p.popular
-                  ? 'bg-[var(--color-brand-600)] hover:bg-[var(--color-brand-700)] text-white shadow-lg shadow-[var(--color-brand-600)]/20'
-                  : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300'
-              }`}>
+              <a href={`https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20paket%20${p.name}`}
+                className={`block w-full text-center text-sm font-medium py-3.5 rounded-full transition-all active:scale-[0.97] ${
+                  p.highlight
+                    ? 'bg-cream dark:bg-espresso text-espresso dark:text-cream hover:opacity-90'
+                    : 'bg-espresso/5 dark:bg-warm-300/10 text-espresso dark:text-warm-100 hover:bg-espresso/10 dark:hover:bg-warm-300/15'
+                }`}
+              >
                 {p.cta}
               </a>
             </div>
           ))}
         </div>
+
+        {/* Footnote */}
+        <p className="reveal mt-8 text-xs text-espresso-soft/30 dark:text-warm-300/30 text-center">
+          DP 50% di awal, sisanya pas website selesai. Garansi revisi 30 hari.
+        </p>
       </div>
     </section>
   )

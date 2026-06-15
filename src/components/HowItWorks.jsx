@@ -1,27 +1,48 @@
 const steps = [
-  { num: '01', title: 'Konsultasi', desc: 'Ceritakan kebutuhanmu via WhatsApp. Kami akan kasih saran dan estimasi harga.' },
-  { num: '02', title: 'Desain & Develop', desc: 'Kami buatkan desain, kamu review. Revisi sampai puas.' },
-  { num: '03', title: 'Deploy & Selesai', desc: 'Website di-online-kan, siap dipakai. Termasuk panduan update.' },
+  { num: '01', title: 'Ngobrol', desc: 'Ceritain kebutuhanmu lewat WhatsApp. Kami kasih saran dan estimasi.' },
+  { num: '02', title: 'Kerjain', desc: 'Kami buatin desain dulu. Revisi sampai kamu oke.' },
+  { num: '03', title: 'Online', desc: 'Website di-deploy, siap dipake. Plus panduan update.' },
 ]
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 md:py-32 bg-white dark:bg-slate-900/40 border-y border-slate-200/60 dark:border-slate-800/40">
-      <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div className="max-w-xl mb-14">
-          <p className="reveal text-xs font-semibold tracking-widest uppercase text-[var(--color-brand-600)] dark:text-[var(--color-brand-400)] mb-3">Cara Kerja</p>
-          <h2 className="reveal text-3xl md:text-4xl font-bold tracking-tight mb-4">3 Langkah Mudah</h2>
-          <p className="reveal reveal-delay-1 text-slate-500 dark:text-slate-400 leading-relaxed">Dari chat pertama sampai website online, prosesnya simpel.</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {steps.map((s, i) => (
-            <div key={s.num} className={`reveal reveal-delay-${i + 1} relative p-6 rounded-2xl bg-[var(--color-surface)] dark:bg-[var(--color-surface-dark)] border border-slate-200/60 dark:border-slate-700/40`}>
-              <span className="text-5xl font-bold text-slate-200 dark:text-slate-800 mb-4 block">{s.num}</span>
-              <h3 className="text-lg font-semibold mb-2">{s.title}</h3>
-              <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{s.desc}</p>
+    <section id="how-it-works" className="py-24 md:py-36 bg-warm-50/60 dark:bg-warm-300/[0.02] border-y border-warm-200/30 dark:border-warm-300/[0.06]">
+      <div className="max-w-6xl mx-auto px-6 md:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+          {/* Left: header */}
+          <div className="lg:col-span-4">
+            <div className="reveal flex items-center gap-3 mb-5">
+              <span className="w-8 h-[1px] bg-terracotta" />
+              <span className="text-[11px] font-medium tracking-[0.2em] uppercase text-terracotta">Proses</span>
             </div>
-          ))}
+            <h2 className="reveal reveal-delay-1 font-display text-4xl md:text-5xl tracking-tight leading-[1.05] mb-5">
+              Tiga Langkah,<br /><span className="italic">Selesai</span>
+            </h2>
+            <p className="reveal reveal-delay-2 text-sm text-espresso-soft/50 dark:text-warm-300/50 leading-relaxed max-w-[30ch]">
+              Dari chat pertama sampai website online. Gak ribet.
+            </p>
+          </div>
+
+          {/* Right: steps */}
+          <div className="lg:col-span-8">
+            <div className="space-y-0">
+              {steps.map((s, i) => (
+                <div key={s.num} className="reveal group" style={{ transitionDelay: `${i * 120}ms` }}>
+                  <div className="flex gap-6 md:gap-10 py-8 border-b border-warm-200/30 dark:border-warm-300/[0.06] last:border-0">
+                    {/* Number */}
+                    <span className="font-display text-4xl md:text-5xl text-warm-300/60 dark:text-warm-300/20 shrink-0 w-14 text-right group-hover:text-terracotta/40 transition-colors duration-500">
+                      {s.num}
+                    </span>
+
+                    <div className="pt-1">
+                      <h3 className="text-lg font-medium mb-2 text-espresso dark:text-warm-100 group-hover:text-terracotta transition-colors duration-300">{s.title}</h3>
+                      <p className="text-sm text-espresso-soft/50 dark:text-warm-300/50 leading-relaxed max-w-[36ch]">{s.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

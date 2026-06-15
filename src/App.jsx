@@ -25,14 +25,16 @@ function App() {
   useScrollReveal()
 
   return (
-    <div className="min-h-screen bg-[var(--color-surface)] text-slate-900 dark:bg-[var(--color-surface-dark)] dark:text-slate-100 transition-colors duration-300">
+    <div className="grain min-h-[100dvh] transition-colors duration-500">
       <Navbar dark={dark} setDark={setDark} />
-      <Hero />
-      <Services />
-      <HowItWorks />
-      <Pricing />
-      <FAQ />
-      <CTA />
+      <main>
+        <Hero />
+        <Services />
+        <HowItWorks />
+        <Pricing />
+        <FAQ />
+        <CTA />
+      </main>
       <Footer />
     </div>
   )
