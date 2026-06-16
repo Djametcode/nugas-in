@@ -81,7 +81,7 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <a href={`https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20paket%20${p.name}`}
+              <a href={`https://wa.me/62895377079683?text=Halo%2C%20saya%20mau%20paket%20${p.name}`}
                 className={`block w-full text-center text-sm font-medium py-3.5 rounded-full transition-all active:scale-[0.97] ${
                   p.highlight
                     ? 'bg-cream dark:bg-espresso text-espresso dark:text-cream hover:opacity-90'

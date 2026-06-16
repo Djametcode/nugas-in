@@ -31,7 +31,7 @@ export default function Hero() {
 
             {/* CTAs */}
             <div className="reveal reveal-delay-3 flex flex-col sm:flex-row items-start gap-4">
-              <a href="https://wa.me/6281234567890?text=Halo%20Nugas.in%2C%20saya%20mau%20bikin%20website"
+              <a href="https://wa.me/62895377079683?text=Halo%20Nugas.in%2C%20saya%20mau%20bikin%20website"
                 className="group inline-flex items-center gap-3 bg-espresso dark:bg-warm-100 text-cream dark:text-espresso font-medium px-7 py-3.5 rounded-full hover:opacity-90 transition-all active:scale-[0.97]"
               >
                 Mulai Ngobrol

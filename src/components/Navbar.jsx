@@ -58,7 +58,7 @@ export default function Navbar({ dark, setDark }) {
                 <svg className="w-[18px] h-[18px] text-espresso-soft/60" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
               )}
             </button>
-            <a href="https://wa.me/6281234567890?text=Halo%20Nugas.in%2C%20saya%20mau%20bikin%20website" className="hidden md:inline-flex items-center gap-2 bg-espresso dark:bg-warm-100 text-cream dark:text-espresso text-[13px] font-medium px-5 py-2.5 rounded-full hover:opacity-90 transition-all active:scale-[0.97]">
+            <a href="https://wa.me/62895377079683?text=Halo%20Nugas.in%2C%20saya%20mau%20bikin%20website" className="hidden md:inline-flex items-center gap-2 bg-espresso dark:bg-warm-100 text-cream dark:text-espresso text-[13px] font-medium px-5 py-2.5 rounded-full hover:opacity-90 transition-all active:scale-[0.97]">
               Chat
             </a>
             <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden p-2.5 rounded-xl hover:bg-warm-100 dark:hover:bg-warm-300/10 transition-colors" aria-label="Menu">
@@ -84,7 +84,7 @@ export default function Navbar({ dark, setDark }) {
               {l.label}
             </a>
           ))}
-          <a href="https://wa.me/6281234567890"
+          <a href="https://wa.me/62895377079683"
             className={`mt-6 bg-espresso dark:bg-warm-100 text-cream dark:text-espresso font-medium px-8 py-3.5 rounded-full transition-all duration-500 ${mobileOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
             style={{ transitionDelay: mobileOpen ? '500ms' : '0ms' }}
           >

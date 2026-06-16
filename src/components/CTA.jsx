@@ -15,7 +15,7 @@ export default function CTA() {
               <p className="text-cream/60 dark:text-espresso/50 text-base leading-relaxed max-w-[36ch] mb-8">
                 Chat sekarang, gratis konsultasi. Gak cocok? Gak bayar.
               </p>
-              <a href="https://wa.me/6281234567890?text=Halo%20Nugas.in%2C%20saya%20mau%20bikin%20website"
+              <a href="https://wa.me/62895377079683?text=Halo%20Nugas.in%2C%20saya%20mau%20bikin%20website"
                 className="group inline-flex items-center gap-3 bg-cream dark:bg-espresso text-espresso dark:text-cream font-medium px-7 py-3.5 rounded-full hover:opacity-90 transition-all active:scale-[0.97]"
               >
                 Chat WhatsApp
@@ -30,7 +30,7 @@ export default function CTA() {
               <div className="space-y-4">
                 <div>
                   <div className="text-[11px] font-medium tracking-[0.15em] uppercase text-cream/40 dark:text-espresso/30 mb-1">WhatsApp</div>
-                  <div className="text-cream dark:text-espresso font-medium">0812-3456-7890</div>
+                  <div className="text-cream dark:text-espresso font-medium">0895-3770-79683</div>
                 </div>
                 <div>
                   <div className="text-[11px] font-medium tracking-[0.15em] uppercase text-cream/40 dark:text-espresso/30 mb-1">Respon</div>
